@@ -9,9 +9,9 @@ import OptionModal from './OptionModal'
 
 export default class Appn extends React.Component {
     state = {
-            selected: "",
-            optionz: ['One', 'Two', 'Three']
-        }
+        selected: "",
+        optionz: ['One', 'Two', 'Three']
+    }
 
     clearSelectedOption = () => {
         this.setState(() => {
@@ -24,14 +24,14 @@ export default class Appn extends React.Component {
         this.setState(() => ({ optionz: [] }))      // single line setState
     }
 
-     handleDeleteIndividual = (chosen) => {
-         this.setState((prevState) => ({
-                optionz: prevState.optionz.filter((option) => {
-                    return (chosen !== option)
-                })
-         }))
+    handleDeleteIndividual = (chosen) => {
+        this.setState((prevState) => ({
+            optionz: prevState.optionz.filter((option) => {
+                return (chosen !== option)
+            })
+        }))
     }
-    
+
     handleChooseOption = () => {
         const randomNumber = Math.floor(Math.random() * this.state.optionz.length)
         const option = this.state.optionz[randomNumber]
@@ -61,9 +61,9 @@ export default class Appn extends React.Component {
             const json = localStorage.getItem('optionz')
             const options = JSON.parse(json)
             if (options) {
-                this.setState(() => ({ optionz:options }))
-            }    
-            
+                this.setState(() => ({ optionz: options }))
+            }
+
         } catch (e) {
 
         }
@@ -84,18 +84,21 @@ export default class Appn extends React.Component {
         return (
             <div>
                 <Header title="Decisions" subtitle="Add options: Then ask what to do:"/>
-                <Counter />
-                <Action hasOptions={!(this.state.optionz.length > 0) }
-                    choice = {this.state.selected}/>
-                <Options options={this.state.optionz}
-                    handleDeleteOptions={this.handleDeleteOptions}
-                    handleDeleteIndividual={this.handleDeleteIndividual}
-                    handleChooseOption={this.handleChooseOption}>
-                </Options>
-                <AddOption handleAddOption={this.handleAddOption}/>
-                <OptionModal selectedOption={this.state.selected}
+                <div className="container">
+                    <Action hasOptions={!(this.state.optionz.length > 0) }
+                        handlePickOption={this.handleChooseOption}
+                        choice = {this.state.selected}/>
+                    <Options options={this.state.optionz}
+                        handleDeleteOptions={this.handleDeleteOptions}
+                        handleDeleteIndividual={this.handleDeleteIndividual}
+                        >
+                    </Options>
+                    <AddOption handleAddOption={this.handleAddOption}/>
+                    <OptionModal selectedOption={this.state.selected}
                         clearModal={this.clearSelectedOption}
-                />
+                        />
+                    <Counter />
+                </div>
             </div>
         )
     }
