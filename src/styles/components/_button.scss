@@ -1,3 +1,31 @@
-.mainButton {
+.main-button {
     background: $mainButton;
+    border: none;
+    border-bottom: 0.6rem solid darken($mainButton, 10%);
+    color: white;
+    font-weight: bold;
+    font-size: $l-size;
+    width: 100%;
+    margin-bottom: $xl-size;
+    padding: 1.0rem;
+}
+
+.main-button:disabled {
+    opacity: 0.6;
+}
+
+.button {
+    background: $mainButton;
+    border: none;
+    color: white;
+    border-bottom: 0.2rem solid darken($mainButton, 10%);
+   font-weight: 500;
+   padding: $s-size
+}
+
+.button--link {
+    background: none;
+    border: none;
+    color: $off-white;
+    padding: 0;
 }

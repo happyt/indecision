@@ -87,16 +87,19 @@ export default class Appn extends React.Component {
                 <div className="container">
                     <Action hasOptions={!(this.state.optionz.length > 0) }
                         handlePickOption={this.handleChooseOption}
-                        choice = {this.state.selected}/>
+                        />
+                        <div className="widget-body">
                     <Options options={this.state.optionz}
                         handleDeleteOptions={this.handleDeleteOptions}
                         handleDeleteIndividual={this.handleDeleteIndividual}
                         >
                     </Options>
                     <AddOption handleAddOption={this.handleAddOption}/>
+</div>
                     <OptionModal selectedOption={this.state.selected}
                         clearModal={this.clearSelectedOption}
                         />
+                    <br />
                     <Counter />
                 </div>
             </div>
