@@ -14,6 +14,14 @@
     background: $widgetBody;
 }
 
+.widget__message {
+    color: $widgetMessage;
+    margin: none;
+    padding: $l-size;
+    text-align: center;
+    border-bottom: 0.2rem solid lighten($widgetBody, 10%);
+}
+
 .widget-body__item {
     display: flex;
     justify-content: space-between;

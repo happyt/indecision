@@ -1,0 +1,11 @@
+.option {
+    display: flex;
+    justify-content: space-between;
+    padding: $m-size $m-size;
+    border-bottom: 0.2rem solid lighten($widgetBody, 10%);
+}
+
+.option__text {
+    color: white;
+    margin: 0;
+}
