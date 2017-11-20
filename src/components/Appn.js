@@ -4,14 +4,22 @@ import AddOption from './AddOption'
 import Options from './Options'
 import Header from './Header'
 import Action from './Action'
-import Counter from './Counter.js'
+import Counter from './Counter'
+import OptionModal from './OptionModal'
 
 export default class Appn extends React.Component {
     state = {
-            option: "Add options: Then what to do:",
+            selected: "",
             optionz: ['One', 'Two', 'Three']
         }
 
+    clearSelectedOption = () => {
+        this.setState(() => {
+            return {
+                selected: ""
+            }
+        })
+    }
     handleDeleteOptions = () => {
         this.setState(() => ({ optionz: [] }))      // single line setState
     }
@@ -29,7 +37,7 @@ export default class Appn extends React.Component {
         const option = this.state.optionz[randomNumber]
         this.setState(() => {
             return {
-                option: option
+                selected: option
             }
         })
     }
@@ -75,16 +83,19 @@ export default class Appn extends React.Component {
     render() {
         return (
             <div>
-                <Header title="my title" subtitle="second line"/>
+                <Header title="Decisions" subtitle="Add options: Then ask what to do:"/>
                 <Counter />
                 <Action hasOptions={!(this.state.optionz.length > 0) }
-                    choice = {this.state.option}/>
+                    choice = {this.state.selected}/>
                 <Options options={this.state.optionz}
                     handleDeleteOptions={this.handleDeleteOptions}
                     handleDeleteIndividual={this.handleDeleteIndividual}
                     handleChooseOption={this.handleChooseOption}>
                 </Options>
                 <AddOption handleAddOption={this.handleAddOption}/>
+                <OptionModal selectedOption={this.state.selected}
+                        clearModal={this.clearSelectedOption}
+                />
             </div>
         )
     }
