@@ -29,3 +29,10 @@
     color: $off-white;
     padding: 0;
 }
+
+
+@media (max-width: $desktop-breakpoint) {
+    .main-button  {
+        margin-bottom: $m-size;
+    }      
+}

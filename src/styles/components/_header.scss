@@ -16,3 +16,9 @@
     color: $off-white;
     margin: 0;
 }
+
+@media (max-width: $desktop-breakpoint) {
+    .header {
+        margin-bottom: $m-size;
+    }      
+}

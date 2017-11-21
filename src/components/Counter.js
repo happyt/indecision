@@ -34,8 +34,8 @@ export default class Counter extends React.Component {
     }
     render() {
         return (
-            <div>
-                <span>Count: {this.state.count}</span>
+            <div className="counter">
+                <span className="counter__value">Count: {this.state.count}</span>
                 <button onClick={this.handlePlus}>+1</button>
                 <button onClick={this.handleMinus}>-1</button>
                 <button onClick={this.handleReset}>reset</button>
